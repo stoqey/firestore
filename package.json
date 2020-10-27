@@ -1,5 +1,5 @@
 {
-  "name": "@vuga/base-firestore",
+  "name": "@stoqey/firestore",
   "private": false,
   "version": "0.0.1",
   "description": "NodeJS Firebase Firestore CRUD library",
@@ -15,7 +15,6 @@
     "build": "rimraf dist && tsc",
     "test-spec": "mocha src/**/*test.ts -R spec --require ts-node/register --exit",
     "test": "npm run test-spec",
-    "prepare": "npm run build",
     "prepublishOnly": "npm run build && npm test"
   },
   "engines": {
@@ -23,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/vugga/base-firestore.git"
+    "url": "git://github.com/stoqey/firestore.git"
   },
   "keywords": [
     "firebase",
@@ -37,9 +36,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vugga/base-firestore/issues"
+    "url": "https://github.com/stoqey/firestore/issues"
   },
-  "homepage": "https://github.com/vugga/base-firestore",
+  "homepage": "https://github.com/stoqey/firestore",
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/lodash": "^4.14.144",
