@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "tslint \"src/**/*.ts\" --project tsconfig.json",
     "build": "rimraf dist && tsc",
-    "test-spec": "mocha test/**/*test.ts --project test.tsconfig.json",
+    "test-spec": "mocha test/**/*test.ts --project test.tsconfig.json --exit",
     "test": "npm run test-spec",
     "prepublishOnly": "npm run build && npm test"
   },
