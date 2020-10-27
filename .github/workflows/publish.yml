@@ -30,6 +30,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Add firebase service key
+      - name: "Add firebase service key"
+        run: echo $FB_SA_KEY > src/service.account.json
+        env:
+          FB_SA_KEY: ${{ secrets.FB_SA_KEY }}
+
       # Install packages with yarn
       - name: "Install"
         run: npm install
