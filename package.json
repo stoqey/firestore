@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "tslint \"src/**/*.ts\" --project tsconfig.json",
     "build": "rimraf dist && tsc",
-    "test-spec": "mocha src/**/*test.ts -R spec --require ts-node/register --exit",
+    "test-spec": "mocha test/**/*test.ts",
     "test": "npm run test-spec",
     "prepublishOnly": "npm run build && npm test"
   },
@@ -58,6 +58,7 @@
     "typescript": ">=2.0"
   },
   "dependencies": {
+    "@vuga/base-firestore": "^0.1.5",
     "firebase-admin": "^9.3.0",
     "lodash": "^4.17.15"
   }

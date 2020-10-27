@@ -1,2 +1,5 @@
 --require ts-node/register
 --full-trace
+--project tsconfig.json
+--exit
+-R spec
