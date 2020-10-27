@@ -32,7 +32,7 @@ jobs:
 
       # Add firebase service key
       - name: "Add firebase service key"
-        run: echo $FB_SA_KEY > src/service.account.json
+        run: echo $FB_SA_KEY > test/service.account.json
         env:
           FB_SA_KEY: ${{ secrets.FB_SA_KEY }}
 
