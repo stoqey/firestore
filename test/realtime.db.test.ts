@@ -33,4 +33,37 @@ describe('Realtime DB', () => {
         console.log(chalk.green(`Query saved to data in db`), savedData);
         expect(savedData).not.null;
     })
+
+    it('should save array data to a field', async () => {
+        let savedData = await store.setData(
+            `${demoDb}/array`,
+            [{
+                symbol: equalTo,
+                time: new Date().getTime()
+            }]);
+
+        console.log(chalk.green(`Query saved to data in db`), savedData);
+        expect(savedData).not.null;
+    })
+
+    it('should read array data to a field', async () => {
+        let ref = await store.getRef(`${demoDb}/array`);
+
+        let savedData = null;
+        ref.once('value', (snapshot) =>  {
+            savedData = snapshot.val();
+            console.log(chalk.green(`Query saved to data in db`), savedData);
+            expect(savedData).not.null;
+        })
+        
+        // let savedData = await store.setData(
+        //     `${demoDb}/array`,
+        //     [{
+        //         symbol: equalTo,
+        //         time: new Date().getTime()
+        //     }]);
+
+       
+        
+    })
 })
