@@ -1,5 +1,4 @@
 import * as admin from 'firebase-admin';
-const realTimeDb = admin.database();
 
 interface ReadQuery {
     path: string,
@@ -18,7 +17,7 @@ export class RealTimeDb {
     }
 
     private constructor() {
-        this.db = realTimeDb;
+        this.db = admin.database();
     }
 
     /**
