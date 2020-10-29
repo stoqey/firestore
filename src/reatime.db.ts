@@ -28,8 +28,14 @@ export class RealTimeDb {
     }
 
     setData = async (path: string, data: any): Promise<any> => {
-        await this.db.ref(path).set({ ...data });
-        return data;
+        const db = this.db.ref(path);
+        return new Promise((res, rej) => {
+            db.set({ ...data }).then((value) => {
+                res(value);
+            }).catch(error => {
+                rej(error);
+            });
+        })
     }
 
     readData = async (args: ReadQuery): Promise<any> => {
