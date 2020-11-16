@@ -358,12 +358,12 @@ export class BaseFireStore {
    * @checkName is @true by `default` 
    */
   async add(data: IDocument, options?: IAddDocumentOptions): Promise<firestore.DocumentData> {
-    data = { ...data, createdAt: getTimeStamp() };
+    data = { ...data, createdAt: new Date() };
     try {
 
       const checkName = options && options.checkName || true;
 
-      const cleanDocument = JSON.parse(JSON.stringify(data));
+      const cleanDocument = data;
 
       if (checkName && data.name) { // and data has name, find it then updated
         const oldByName = await this.byName(data.name);
