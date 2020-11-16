@@ -363,13 +363,15 @@ export class BaseFireStore {
 
       const checkName = options && options.checkName || true;
 
+      const cleanDocument = JSON.parse(JSON.stringify(data));
+
       if (checkName && data.name) { // and data has name, find it then updated
         const oldByName = await this.byName(data.name);
         if (oldByName) {
           // We have the old by name update it now
           return this.update({
             id: oldByName.id,
-            data
+            data: cleanDocument,
           })
 
         }
@@ -377,7 +379,7 @@ export class BaseFireStore {
 
       // Default add document
       return this.getRef()
-        .add(data)
+        .add(cleanDocument)
         .then((doc: IDocument) => {
           return this.byId(doc.id);
         });
